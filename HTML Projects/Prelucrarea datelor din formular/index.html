@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Personal Information Form</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+			margin: 0;
+			padding: 0;
+		}
+		.container {
+		max-width: 600px;
+		margin: 0 auto;
+		padding: 20px;
+		background-color: #fff;
+		border-radius: 5px;
+		box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+	}
+	
+	h1 {
+		font-size: 2rem;
+		font-weight: bold;
+		margin-top: 0;
+		margin-bottom: 20px;
+		text-align: center;
+		color: #333;
+	}
+	
+	form {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+	
+	label {
+		display: block;
+		font-size: 1.1rem;
+		font-weight: bold;
+		margin-bottom: 10px;
+		color: #555;
+	}
+	
+	input[type="text"],
+	input[type="date"] {
+		width: 100%;
+		padding: 12px;
+		margin-bottom: 20px;
+		border-radius: 5px;
+		border: 2px solid #e5e5e5;
+		font-size: 1.1rem;
+		color: #333;
+		background-color: #fff;
+		box-shadow: none;
+	}
+	
+	input[type="radio"],
+	input[type="checkbox"] {
+		margin-right: 10px;
+	}
+	
+	.gender,
+	.language {
+		margin-bottom: 20px;
+	}
+	
+	.gender label,
+	.language label {
+		margin-right: 5px;
+		color: #555;
+	}
+	
+	.gender input[type="radio"] + label,
+	.language input[type="checkbox"] + label {
+		color: #333;
+	}
+	
+	button {
+		display: inline-block;
+		padding: 10px 20px;
+		background-color: #4CAF50;
+		color: #fff;
+		border: none;
+		border-radius: 5px;
+		font-size: 1.2rem;
+		cursor: pointer;
+		transition: all 0.2s ease-in-out;
+	}
+	
+	button:hover {
+		background-color: #3e8e41;
+		transform: translateY(-2px);
+	}
+	
+	#result {
+		margin-top: 20px;
+		padding: 20px;
+		border-radius: 5px;
+		border: 2px solid #e5e5e5;
+		font-size: 1.1rem;
+		background-color: #fff;
+		line-height: 1.6;
+		color: #333;
+		box-shadow: none;
+	}
+	
+	@media (max-width: 768px) {
+		form {
+			flex-direction: column;
+			max-width: 90%;
+		}
+		
+		label {
+			width: 100%;
+			margin-bottom: 5px;
+		}
+	}
+</style>
+</head>
+<body>
+		<h1>Introducere date personale</h1>
+		<form id="myForm">
+			<label for="nume">Nume:</label>
+			<input type="text" id="nume" name="nume">
+	
+			<label for="prenume">Prenume:</label>
+			<input type="text" id="prenume" name="prenume">
+	
+			<div>
+				<label>Gen:</label>
+				<input type="radio" id="masculin" name="gen" value="M" checked>
+				<label for="masculin">M</label>
+				<input type="radio" id="feminin" name="gen" value="F">
+				<label for="feminin">F</label>
+			</div>
+	
+			<label for="studiu">Studiu individual:</label>
+			<input type="text" id="studiu" name="studiu">
+	
+			<label for="data_nasterii">Data nasterii:</label>
+			<input type="date" id="data_nasterii" name="data_nasterii">
+	
+			<div>
+				<label>Limbi:</label>
+				<input type="checkbox" id="engleza" name="limba" value="Engleza">
+				<label for="engleza">Eng</label>
+				<input type="checkbox" id="franceza" name="limba" value="Franceza">
+				<label for="franceza">Fr</label>
+				<input type="checkbox" id="germana" name="limba" value="Germana">
+				<label for="germana">Ge</label>
+			</div>
+	
+			<button type="button" onclick="afisareDate()">OK</button>
+		</form>
+	
+		<h1>Datele introduse sunt:</h1>
+		<div id="afisareDate"></div>
+		<script>
+			function afisareDate() {
+				var nume = document.getElementById("nume").value;
+				var prenume = document.getElementById("prenume").value;
+				var gen = document.querySelector('input[name="gen"]:checked').value;
+				var studiu = document.getElementById("studiu").value;
+				var data_nasterii = document.getElementById("data_nasterii").value;
+				var limbi = [];
+				var limbiSelectate = document.querySelectorAll('input[name="limba"]:checked');
+				for (var i = 0; i < limbiSelectate.length; i++) {
+					limbi.push(limbiSelectate[i].value);
+				}
+				var afisare = document.getElementById("afisareDate");
+				afisare.innerHTML = "Nume: " + nume + "<br>" +
+					"Prenume: " + prenume + "<br>" +
+					"Gen: " + gen + "<br>" +
+					"Studiu: " + studiu + "<br>" +
+					"Data nasterii: " + data_nasterii + "<br>" +
+					"Limbi: " + limbi.join(", ");
+			}
+		</script>
+</body>
+</html>

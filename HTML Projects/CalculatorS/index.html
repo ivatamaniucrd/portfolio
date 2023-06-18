@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Calculator Depozit la Termen</title>
+  
+</head>
+<body>
+  <header>
+     <img src="calculator.png" alt="Calculator" height="50"> <!-- Adaugă imaginea cu atributul src corespunzător și setează înălțimea dorită -->
+    <h1>Calculator Depozit la Termen</h1>
+  </header>
+
+  <hr>
+
+  <div class="bold-text">
+    Care va fi suma acumulată la scadența depozitului?
+  </div>
+
+  <br><br>
+
+  <div>
+    Calculează dobânda încasată la un depozit bancar, pe o perioadă aleasă de tine. Calculatorul consideră că rata dobânzii rămâne fixă pe toată durata depozitului.
+  </div>
+
+  <br><br>
+
+  <div class="container">
+    <div class="segment">
+      <label for="suma-depusa">SUMA DEPUSĂ</label>
+      <input type="text" id="suma-depusa">
+
+      <br><br>
+
+      <label for="termen">TERMEN</label>
+      <select id="termen">
+        <option value="1">1 lună</option>
+        <option value="2">2 luni</option>
+        <option value="3">3 luni</option>
+        <option value="6">6 luni</option>
+        <option value="12">12 luni</option>
+        <option value="24">24 luni</option>
+      </select>
+    </div>
+
+    <div class="segment">
+      <label for="rata-dobanzii">RATA DOBÂNZII</label>
+      <input type="text" id="rata-dobanzii">
+
+      <br><br>
+
+      <label for="plata-dobanzii">PLATA DOBÂNZII</label>
+      <select id="plata-dobanzii">
+        <option value="lunar">Lunar</option>
+        <option value="anual">Anual</option>
+      </select>
+    </div>
+  </div>
+
+  <br><br>
+
+  <label for="reinnoire">De câte ori vrei să reînnoiești depozitul?</label>
+  <select id="reinnoire">
+    <option value="0">Fără reînnoire</option>
+  </select>
+
+  <br><br>
+
+  <button id="calculeaza">Calculează</button>
+
+  <div id="rezultat">
+  <h2>Rezultat:</h2>
+  <p id="suma-depusa-afisata"></p>
+  <p id="termen-afisat"></p>
+  <p id="rata-dobanzii-afisata"></p>
+  <p id="plata-dobanzii-afisata"></p>
+  <p id="reinnoire-afisata"></p>
+  <p id="suma-finala-afisata"></p>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
+
+
